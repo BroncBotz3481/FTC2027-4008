@@ -1,18 +1,12 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.mechanisms;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.BuiltinCameraDirection;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.CameraCompatibilityManager;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-import org.firstinspires.ftc.robotcore.internal.usb.UsbConstants;
-import org.firstinspires.ftc.vision.VisionPortal;
-import org.firstinspires.ftc.vision.apriltag.AprilTagClusterDetection;
-import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor;
-import org.firstinspires.ftc.vision.apriltag.AprilTagSingleDetection;
-import org.openftc.apriltag.AprilTagDetection;
+import com.qualcomm.robotcore.util.Range;
+
+import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
 
 public class TurretMechanism {
     private DcMotorEx turret;
@@ -60,8 +54,23 @@ public class TurretMechanism {
             lastError = 0;
         }
         // -------- start pD controller ------------
+        double error = goalX - curID.ftcPose.bearing;
+        double pTerm = error * kP;
 
+        double dTerm = 0;
+        if (deltaTime > 0) {
+            dTerm = ((error - lastError) /deltaTime) * kD;
+        }
 
+        if (Math.abs(error) < angleTolerance){
+            power = 0;
+        } else {
+            power = Range.clip(pTerm + dTerm, -MAX_POWER, MAX_POWER);
+        }
+            // safety encoder check
+
+        turret.setPower(power);
+        lastError = error;
     }
 }
 
