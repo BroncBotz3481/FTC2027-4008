@@ -15,6 +15,7 @@ import org.firstinspires.ftc.vision.apriltag.AprilTagSingleDetection;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class AprilTagWebcam {
     private AprilTagProcessor aprilTagProcessor;
     private VisionPortal visionPortal;
@@ -47,16 +48,16 @@ public class AprilTagWebcam {
         return detectedTags;
     }
 
-    public AprilTagDetection getTagBySpecificId(int id) {
+    public AprilTagSingleDetection getTagBySpecificId(int id) {
         for (AprilTagDetection detection : detectedTags) {
             if (detection instanceof AprilTagSingleDetection) {
                 AprilTagSingleDetection singleDet = (AprilTagSingleDetection) detection;
                 if (singleDet.id == id) {
-                    return detection;
+                    return singleDet;
                 }
             }
         }
-        return null; // no tag with that id was found
+        return null;
     }
 
     public void stop() {

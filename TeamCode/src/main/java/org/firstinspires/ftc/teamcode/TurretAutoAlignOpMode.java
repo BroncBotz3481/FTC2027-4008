@@ -1,17 +1,18 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.mechanisms.AprilTagWebcam;
 import org.firstinspires.ftc.teamcode.mechanisms.TurretMechanism;
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection;
+import org.firstinspires.ftc.vision.apriltag.AprilTagSingleDetection;
 
-
+@TeleOp(name = "Turret Auto Align")
 public class TurretAutoAlignOpMode extends OpMode {
 
     private AprilTagWebcam webcam = new AprilTagWebcam();
-
     private TurretMechanism turret = new TurretMechanism();
 
     double[] stepSizes = {.1, 0.01, 0.001, 0.0001, 0.00001};
@@ -37,7 +38,7 @@ public class TurretAutoAlignOpMode extends OpMode {
     @Override
     public void loop(){
         webcam.update();
-        AprilTagDetection id20 = webcam.getTagBySpecificId(20);
+        AprilTagSingleDetection id20 = webcam.getTagBySpecificId(20);
         turret.update(id20);
 
         // 'B' button cycles through the different step sizes for tuning precision.
@@ -62,7 +63,8 @@ public class TurretAutoAlignOpMode extends OpMode {
         }
 
         if (id20 != null) {
-            telemetry.addData("cur ID", webcam);
+            telemetry.addData("cur ID", id20.id);
+            telemetry.addData("bearing", id20.ftcPose.bearing);
         } else {
             telemetry.addLine("No tag detected, stopped turning mode");
         }

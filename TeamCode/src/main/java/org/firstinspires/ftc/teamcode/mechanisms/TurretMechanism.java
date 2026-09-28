@@ -49,11 +49,12 @@ public class TurretMechanism {
         double deltaTime = timer.seconds();
         timer.reset();
 
-        if(curID == null) {
+        if (curID == null) {
             turret.setPower(0);
             lastError = 0;
+            return; // <-- this was missing
         }
-        // -------- start pD controller ------------
+
         double error = goalX - curID.ftcPose.bearing;
         double pTerm = error * kP;
 
