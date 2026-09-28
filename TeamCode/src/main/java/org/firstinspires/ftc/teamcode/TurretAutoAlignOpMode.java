@@ -38,8 +38,8 @@ public class TurretAutoAlignOpMode extends OpMode {
     @Override
     public void loop(){
         webcam.update();
-        AprilTagSingleDetection id20 = webcam.getTagBySpecificId(20);
-        turret.update(id20);
+        AprilTagSingleDetection id30 = webcam.getTagBySpecificId(30);
+        turret.update(id30);
 
         // 'B' button cycles through the different step sizes for tuning precision.
         if (gamepad1.bWasPressed()) {
@@ -62,9 +62,9 @@ public class TurretAutoAlignOpMode extends OpMode {
             turret.setkD(turret.getkD() - stepSizes[stepIndex]);
         }
 
-        if (id20 != null) {
-            telemetry.addData("cur ID", id20.id);
-            telemetry.addData("bearing", id20.ftcPose.bearing);
+        if (id30 != null) {
+            telemetry.addData("cur ID", id30.id);
+            telemetry.addData("bearing", id30.ftcPose.bearing);
         } else {
             telemetry.addLine("No tag detected, stopped turning mode");
         }
