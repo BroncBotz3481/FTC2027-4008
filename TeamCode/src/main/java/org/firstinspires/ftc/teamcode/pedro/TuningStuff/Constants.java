@@ -19,7 +19,12 @@ import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+
 public class Constants {
+
+
+
     public static MecanumConfig drivetrainConfig = new MecanumConfig(c -> {
         c.frontLeftName.set("fld");
         c.frontRightName.set("frd");
@@ -32,33 +37,16 @@ public class Constants {
         c.manualBrakeMode.set(true);
     });
 
-
-    public static PinpointConfig localizerConfig = new PinpointConfig(
-            c -> {
-                c.name.set("pinpoint");
-                c.xPodOffset.set(2.187);
-                c.yPodOffset.set(-4.572);
-                c.xPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
-                c.yPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
-            }
-    );
-
-//works
-//    public static TwoWheelConfig localizerConfig = new TwoWheelConfig(c -> {
-//        c.xPodName.set("bld");
-//        c.yPodName.set("fld");
-//        c.imuName.set("imu");
-//        c.xPodOffset.set(-8.550);
-//        c.yPodOffset.set(-3.450);
-//      c.forwardTicksToInches.set(0.002965983633879632);
-//       c.strafeTicksToInches.set(0.00474166097350855);
-//        c.xPodDirection.set(Encoder.FORWARD);
-//        c.yPodDirection.set(Encoder.REVERSE);
-//        c.imu.set(new RevHubIMU(new RevHubOrientationOnRobot(
-//                RevHubOrientationOnRobot.LogoFacingDirection.RIGHT,
-//                RevHubOrientationOnRobot.UsbFacingDirection.UP
-//        )));
-//    });
+    public static PinpointConfig localizerConfig = new PinpointConfig(c -> {
+        c.name.set("pinpoint");
+        c.podType.set(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_SWINGARM_POD);
+        c.xPodOffset.set(-9.460547740065207);
+        c.yPodOffset.set(-4.5496386430394935);
+        c.xPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
+        c.yPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
+        c.globalDistanceUnit.set(DistanceUnit.INCH);
+        c.offsetUnits.set(DistanceUnit.INCH);
+    });
 
     public static ForesightConfig foresightConfig = new ForesightConfig(
             c -> {
@@ -99,6 +87,18 @@ public class Constants {
     }
 
 }
+
+
+
+//    public static PinpointConfig localizerConfig = new PinpointConfig(
+//            c -> {
+//                c.name.set("pinpoint");
+//                c.xPodOffset.set(2.187);
+//                c.yPodOffset.set(-4.572);
+//                c.xPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
+//                c.yPodDirection.set(GoBildaPinpointDriver.EncoderDirection.FORWARD);
+//            }
+//    )
 
 
 
