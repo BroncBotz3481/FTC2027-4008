@@ -33,10 +33,11 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@TeleOp(name="Basic: Omni Linear OpMode", group="Linear OpMode")
+@TeleOp(name="ShooterTest_PowerBased", group="TeleOp")
 
 public class Shooter_testv1base extends LinearOpMode {
 
@@ -50,7 +51,7 @@ public class Shooter_testv1base extends LinearOpMode {
         S1 = hardwareMap.get(DcMotor.class, "S1");
         S2= hardwareMap.get(DcMotor.class,"S2");
         S1.setDirection(DcMotor.Direction.REVERSE);
-        S2.setDirection(DcMotor.Direction.REVERSE);
+        S2.setDirection(DcMotor.Direction.FORWARD);
 
 
         // Wait for the game to start (driver presses START)
