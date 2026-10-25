@@ -15,7 +15,7 @@ public class TurretMechanism {
     private double kD = 0.0000;
     private double goalX = 0;
     private double lastError = 0;
-    private double angleTolerance = 0.2;
+    private double angleTolerance = 0.2;       //hi
     private final double MAX_POWER = 0.6;
     private double power = 0;
     private final ElapsedTime timer = new ElapsedTime();
