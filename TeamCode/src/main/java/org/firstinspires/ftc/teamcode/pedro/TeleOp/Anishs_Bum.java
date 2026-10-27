@@ -29,12 +29,8 @@
 
 package org.firstinspires.ftc.teamcode.pedro.TeleOp;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.util.ElapsedTime;
 
 /*
  * This file contains an example of a Linear "OpMode".
@@ -69,7 +65,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class Anishs_Bum extends OpMode {
 
 
-    HardwareMap hwMap = new HardwareMap();
+    HardwareMap2027Team4008 hwMap = new HardwareMap2027Team4008();
 
 
     @Override
@@ -85,12 +81,33 @@ public class Anishs_Bum extends OpMode {
 
     @Override
     public void loop() {
+
         if(gamepad1.a) {
             hwMap.intakeMain1.setPower(0.7);
         }
-
-
+        else if(gamepad1.dpad_up) {
+            hwMap.DriveLeftBack.setPower(0.7);
+            hwMap.DriveRightBack.setPower(0.7);
+            hwMap.DriveLeftFront.setPower(0.7);
+            hwMap.DriveRightFront.setPower(0.7);
+        } else if(gamepad1.dpad_down) {
+            hwMap.DriveLeftBack.setPower(0.7);
+            hwMap.DriveRightBack.setPower(0.7);
+            hwMap.DriveLeftFront.setPower(0.7);
+            hwMap.DriveRightFront.setPower(0.7);
+        } else if(gamepad1.dpad_left) {
+            hwMap.DriveLeftBack.setPower(0.7);
+            hwMap.DriveRightBack.setPower(-0.7);
+            hwMap.DriveLeftFront.setPower(0.7);
+            hwMap.DriveRightFront.setPower(-0.7);
+        } else if(gamepad1.dpad_right) {
+            hwMap.DriveLeftBack.setPower(-0.7);
+            hwMap.DriveRightBack.setPower(0.7);
+            hwMap.DriveLeftFront.setPower(-0.7);
+            hwMap.DriveRightFront.setPower(0.7);
+        } else if (gamepad1.left_trigger_pressed){
+            //need to add code
+        }
     }
-
-
 }
+

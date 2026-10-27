@@ -5,10 +5,9 @@ import android.hardware.Sensor;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class HardwareMap {
+public class HardwareMap2027Team4008 {
 
     //TODO: May need to change Servos for turret and hood to be different
 
@@ -20,6 +19,10 @@ public class HardwareMap {
     public CRServo AddCrServosHere = null;
 
     public Sensor batteryvoltageSensor = null;
+    public DcMotor DriveLeftFront = null;
+    public DcMotor DriveRightFront = null;
+    public DcMotor DriveLeftBack = null;
+    public DcMotor DriveRightBack = null;
 
 
     //Constants
@@ -96,6 +99,28 @@ public class HardwareMap {
         NectarShooter.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         NectarShooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         NectarShooter.setVelocityPIDFCoefficients(8, 0, 0.01, 8.8);
+
+        DriveLeftBack.setDirection(DcMotor.Direction.FORWARD);
+        DriveLeftBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        DriveLeftBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        DriveLeftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        DriveRightBack.setDirection(DcMotor.Direction.FORWARD);
+        DriveRightBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        DriveRightBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        DriveRightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        DriveRightFront.setDirection(DcMotor.Direction.FORWARD);
+        DriveRightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        DriveRightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        DriveRightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        DriveLeftFront.setDirection(DcMotor.Direction.FORWARD);
+        DriveLeftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        DriveLeftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+
 
 
 //        SlideMotor1.setPositionPIDFCoefficients();
