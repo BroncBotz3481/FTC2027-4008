@@ -5,8 +5,6 @@ public enum RobotStates {
     ///---------IntakeState-----------
     IntakeStart,
     IntakeDone,
-
-
     ///---------PollenTurret----------
     PollenTurretServoPositionalPos,
     PollenTurretHoodPos,

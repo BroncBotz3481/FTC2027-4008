@@ -15,7 +15,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.pedro.TeleOp.HardwareMap2027Team4008;
+import org.firstinspires.ftc.teamcode.pedro.TeleOp.HwMap;
+import org.firstinspires.ftc.teamcode.pedro.TeleOp.HwMap;
 import org.firstinspires.ftc.teamcode.pedro.TeleOp.RobotStates;
 import org.firstinspires.ftc.teamcode.pedro.TuningStuff.Constants;
 
@@ -26,7 +27,7 @@ public class AutoSoloRed extends LinearOpMode {
 
     private final PoseFactory poseFactory = PoseFactory.degrees();
 
-    HardwareMap2027Team4008 hwMap = new HardwareMap2027Team4008();
+    HwMap hwMap = new HwMap();
 
     RobotStates robotStates = RobotStates.IDLE;
 
@@ -95,6 +96,10 @@ public class AutoSoloRed extends LinearOpMode {
 
     public void update(){
         switch(robotStates) {
+            case IDLE:{
+
+
+            }
             case IntakeStart:
                 if(gamepad1.a)
                     hwMap.intakeMain1.setPower(0.7);
