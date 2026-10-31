@@ -106,8 +106,5 @@ public class Anishs_Bum extends OpMode {
             hwMap.DriveLeftFront.setPower(-0.7);
             hwMap.DriveRightFront.setPower(0.7);
         } else if (gamepad1.left_trigger_pressed){
-            //need to add code
-        }
-    }
-}
+
 
