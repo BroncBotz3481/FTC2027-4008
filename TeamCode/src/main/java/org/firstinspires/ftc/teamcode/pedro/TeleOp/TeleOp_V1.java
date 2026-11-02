@@ -20,6 +20,8 @@ public class TeleOp_V1 extends OpMode {
 
     @Override
     public void init(){
+        hwMap.Map(hardwareMap);
+
         hwMap.gatePollen.setPosition(hwMap.gatePollenOpenPos);
         hwMap.gateNectar.setPosition(hwMap.gateNectarOpenPos);
         hwMap.turretservo1.setPosition(hwMap.turretServo1DefaultPos);

@@ -68,6 +68,7 @@ public class ServoPositiontesting extends OpMode {
     HwMap hwMap = new HwMap();
 
 
+
     @Override
     public void init() {
 
@@ -76,26 +77,36 @@ public class ServoPositiontesting extends OpMode {
     @Override
     public void loop() {
 
+        hwMap.Map(hardwareMap);
+
         if(gamepad1.a) {
-            hwMap.HoodPollen.setPosition(0);
-            hwMap.HoodNectar.setPosition(0);
-            hwMap.gatePollen.setPosition(0);
-            hwMap.gateNectar.setPosition(0);
-            hwMap.turretservo1.setPosition(0);
-            hwMap.turretservo2.setPosition(0);
             hwMap.flowerIntake.setPosition(0);
         }
         if(gamepad1.b){
-            hwMap.HoodPollen.setPosition(1);
-            hwMap.HoodNectar.setPosition(1);
-            hwMap.gatePollen.setPosition(1);
-            hwMap.gateNectar.setPosition(1);
-            hwMap.turretservo1.setPosition(1);
-            hwMap.turretservo2.setPosition(1);
-            hwMap.flowerIntake.setPosition(1);
-
+            hwMap.gatePollen.setPosition(0);
 
         }
+        if (gamepad1.x){
+            hwMap.gateNectar.setPosition(0);
+        }
+
+        if(gamepad1.dpad_up){
+            hwMap.HoodPollen.setPosition(0);
+        }
+
+        if(gamepad1.dpad_down){
+            hwMap.HoodNectar.setPosition(0);
+        }
+
+        if(gamepad1.dpad_left){
+            hwMap.turretservo1.setPosition(0);
+        }
+
+        if(gamepad1.dpad_right){
+            hwMap.turretservo2.setPosition(0);
+        }
+
+
 
     }
 }

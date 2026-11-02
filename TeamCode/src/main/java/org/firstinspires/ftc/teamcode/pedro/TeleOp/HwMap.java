@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class HwMap {
@@ -50,7 +51,6 @@ public class HwMap {
     public double intakePower = 0.8;
     public double intakePowerZero = 0;
 
-
     public double intakeSpitPower = -0.8;
 
 
@@ -73,7 +73,7 @@ public class HwMap {
 
         intakeMain1 = hwMap.get(DcMotor.class, "intakeMain1");
         intakeMain2 = hwMap.get(DcMotor.class,"intakeMain2");
-        PollenShooter = hwMap.get(DcMotorEx.class, "outtake2");
+        PollenShooter = hwMap.get(DcMotorEx.class, "PollenShooter");
         NectarShooter = hwMap.get(DcMotorEx.class, "NectarShooter");
         //Done
         gatePollen = hwMap.get(Servo.class, "gatePollen");
@@ -83,8 +83,7 @@ public class HwMap {
         HoodPollen = hwMap.get(Servo.class,"HoodPollen");
         turretservo1 = hwMap.get(Servo.class,"turretservo1");
         turretservo2 = hwMap.get(Servo.class,"turretservo2");
-        batteryvoltageSensor = hwMap.get(Sensor.class, "batteryvoltageSensor");
-
+       // batteryvoltageSensor = hwMap.get(Sensor.class, "batteryvoltageSensor");
 
         //PlaceHolder Values
         DriveLeftBack = hwMap.get(DcMotor.class,"bld");
@@ -95,12 +94,12 @@ public class HwMap {
 
 
         //   Lights = hwMap.get(RevBlinkinLedDriver.class,"Lights");
-        intakeMain1.setDirection(DcMotor.Direction.FORWARD);
+        intakeMain1.setDirection(DcMotorSimple.Direction.FORWARD);
         intakeMain1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         intakeMain1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         intakeMain1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        intakeMain2.setDirection(DcMotor.Direction.FORWARD);
+        intakeMain2.setDirection(DcMotor.Direction.REVERSE);
         intakeMain2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         intakeMain2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         intakeMain2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -138,10 +137,6 @@ public class HwMap {
         DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         DriveLeftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-
-
-
-//        SlideMotor1.setPositionPIDFCoefficients();
 
 
     }

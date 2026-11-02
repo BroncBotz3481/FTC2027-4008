@@ -35,6 +35,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+
 @TeleOp(name="TeleOp-test", group="OpMode")
 
 public class TeleOpTest extends LinearOpMode {
@@ -42,7 +43,6 @@ public class TeleOpTest extends LinearOpMode {
     HwMap hwMap = new HwMap();
 
     private ElapsedTime runtime = new ElapsedTime();
-
 
     @Override
     public void runOpMode() {
