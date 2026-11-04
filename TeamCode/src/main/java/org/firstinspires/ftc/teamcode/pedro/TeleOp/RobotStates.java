@@ -5,8 +5,6 @@ public enum RobotStates {
     ///---------IntakeState-----------
     IntakeStart,
     IntakeDone,
-
-
     ///---------PollenTurret----------
     PollenTurretServoPositionalPos,
     PollenTurretHoodPos,
@@ -21,8 +19,6 @@ public enum RobotStates {
     FlowerIntakeRampBlocker,
     FlowerIntakeRampIntaking,
     FlowerIntakeRampBase
-
-
 
 
 
