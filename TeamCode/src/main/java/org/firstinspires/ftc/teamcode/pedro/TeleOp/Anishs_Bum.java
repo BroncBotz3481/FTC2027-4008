@@ -82,29 +82,39 @@ public class Anishs_Bum extends OpMode {
     @Override
     public void loop() {
 
-        if(gamepad1.a) {
+        if (gamepad1.aWasPressed()) {
             hwMap.intakeMain1.setPower(0.7);
-        }
-        else if(gamepad1.dpad_up) {
+            hwMap.intakeMain2.setPower(0.7);
+        } else if (gamepad1.dpad_up) {
             hwMap.DriveLeftBack.setPower(0.7);
             hwMap.DriveRightBack.setPower(0.7);
             hwMap.DriveLeftFront.setPower(0.7);
             hwMap.DriveRightFront.setPower(0.7);
-        } else if(gamepad1.dpad_down) {
+        } else if (gamepad1.dpad_down) {
             hwMap.DriveLeftBack.setPower(0.7);
             hwMap.DriveRightBack.setPower(0.7);
             hwMap.DriveLeftFront.setPower(0.7);
             hwMap.DriveRightFront.setPower(0.7);
-        } else if(gamepad1.dpad_left) {
+        } else if (gamepad1.dpad_left) {
             hwMap.DriveLeftBack.setPower(0.7);
             hwMap.DriveRightBack.setPower(-0.7);
             hwMap.DriveLeftFront.setPower(0.7);
             hwMap.DriveRightFront.setPower(-0.7);
-        } else if(gamepad1.dpad_right) {
+        } else if (gamepad1.dpad_right) {
             hwMap.DriveLeftBack.setPower(-0.7);
             hwMap.DriveRightBack.setPower(0.7);
             hwMap.DriveLeftFront.setPower(-0.7);
             hwMap.DriveRightFront.setPower(0.7);
-        } else if (gamepad1.left_trigger_pressed){
+        }
+
+        if (gamepad1.right_trigger > 0.3) {
+            hwMap.PollenShooter.setPower(0.7);
+            hwMap.NectarShooter.setPower(0.7);
+        } else {
+            hwMap.PollenShooter.setPower(0);
+            hwMap.NectarShooter.setPower(0);
+        }
+    }
 
 
+}

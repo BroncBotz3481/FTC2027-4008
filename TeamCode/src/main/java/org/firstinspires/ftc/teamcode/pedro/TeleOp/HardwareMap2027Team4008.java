@@ -120,7 +120,8 @@ public class HardwareMap2027Team4008 {
         DriveLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         DriveLeftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-
+        turretservo1.setDirection(Servo.Direction.FORWARD);
+        turretservo2.setDirection(Servo.Direction.FORWARD);
 
 
 //        SlideMotor1.setPositionPIDFCoefficients();
