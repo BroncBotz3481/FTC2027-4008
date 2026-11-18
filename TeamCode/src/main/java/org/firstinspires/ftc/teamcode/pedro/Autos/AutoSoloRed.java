@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode.pedro.Autos;
 
-import org.firstinspires.ftc.teamcode.pedro.Autos.OpModeStorage;
-
 
 import com.pedropathing.api.Paths;
 
@@ -20,7 +18,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.pedro.TeleOp.HwMap;
-import org.firstinspires.ftc.teamcode.pedro.TeleOp.RobotStates;
+import org.firstinspires.ftc.teamcode.pedro.Junk.RobotStates;
 import org.firstinspires.ftc.teamcode.pedro.TuningStuff.Constants;
 
 @Autonomous(name = "AutoSoloRed", group = "Autonomous")
@@ -44,7 +42,7 @@ public class AutoSoloRed extends LinearOpMode {
 
     private ElapsedTime FlowerIntakePhaseTimer = new ElapsedTime();
 
-    private double curPollenShooterVelocity = hwMap.PollenShooter.getVelocity();
+    private double curPollenShooterVelocity = hwMap.PollenShooterLeft.getVelocity();
 
     private boolean ReachedVelocity;
 

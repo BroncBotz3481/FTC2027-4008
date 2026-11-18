@@ -32,27 +32,36 @@ package org.firstinspires.ftc.teamcode.pedro.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-
-
-@TeleOp(name="Intaketesting", group="TeleOp")
+@TeleOp(name="MotorTesting", group="TeleOp")
 
 public class RobotMotorTesting_PowerBased extends LinearOpMode {
 
     // Declare OpMode members for each of the 4 motors.
     private ElapsedTime runtime = new ElapsedTime();
 
-    HwMap hwMap = new HwMap();
 
+    public DcMotor PollenShooter, NectarShooter = null;
     public DcMotor intakeMain1, intakeMain2 = null;
-
 
 
     @Override
     public void runOpMode() {
 
-        hwMap.Map(hardwareMap);
+
+        intakeMain1 = hardwareMap.get(DcMotor.class, "intakeMainLeft");
+        intakeMain2 = hardwareMap.get(DcMotor.class, "intakeMainRight");
+
+
+        PollenShooter = hardwareMap.get(DcMotorEx.class, "PollenShooter");
+        NectarShooter = hardwareMap.get(DcMotorEx.class, "NectarShooter");
+
+        intakeMain1.setDirection(DcMotorSimple.Direction.FORWARD);
+        intakeMain2.setDirection(DcMotor.Direction.REVERSE);
+
 
         //intakeMain2.setDirection(DcMotor.Direction.REVERSE);
 
@@ -65,14 +74,31 @@ public class RobotMotorTesting_PowerBased extends LinearOpMode {
         while (opModeIsActive()) {
 
             if (gamepad1.a) {
-            hwMap.intakeMain1.setPower(0.8);
-             hwMap.intakeMain2.setPower(0.8);
+                intakeMain1.setPower(0.8);
+                PollenShooter.setPower(0.8);
             }
-            else {
-               hwMap.intakeMain1.setPower(0);
-               hwMap.intakeMain2.setPower(0);
+                else{
+                    intakeMain1.setPower(0);
+                    PollenShooter.setPower(0);
+                }
+
+
+
+                if(gamepad1.x) {
+                    intakeMain2.setPower(0.8);
+                    NectarShooter.setPower(0.8);
+
+                }
+                        else{
+                            NectarShooter.setPower(0);
+                            intakeMain2.setPower(0);
+                    }
+//            PollenShooter.setPower(0.7);
+//            NectarShooter.setPower(0.7);
             }
 
+
+            }
         }
-    }
-}
+
+

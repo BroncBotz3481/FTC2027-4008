@@ -17,6 +17,7 @@ import com.pedropathing.revhub.localizers.TwoWheelLocalizer;
 import com.qualcomm.hardware.gobilda.GoBildaPinpointDriver;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
@@ -30,10 +31,10 @@ public class Constants {
         c.frontRightName.set("frd");
         c.backLeftName.set("bld");
         c.backRightName.set("brd");
-        c.frontLeftDirection.set(DcMotor.Direction.REVERSE);
+        c.frontLeftDirection.set(DcMotor.Direction.FORWARD);
         c.frontRightDirection.set(DcMotor.Direction.FORWARD);
-        c.backLeftDirection.set(DcMotor.Direction.REVERSE);
-        c.backRightDirection.set(DcMotor.Direction.FORWARD);
+        c.backLeftDirection.set(DcMotor.Direction.FORWARD);
+        c.backRightDirection.set(DcMotor.Direction.REVERSE);
         c.manualBrakeMode.set(true);
     });
 

@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.pedro.Junk;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.pedro.TeleOp.HwMap;
-import org.firstinspires.ftc.teamcode.pedro.TeleOp.RobotStates;
 
 public class ShootingRoutineLogic {
 
@@ -14,7 +13,7 @@ public class ShootingRoutineLogic {
 
     public double placeholder = 0;
 
-    public double curVelocityPollenShooter = hwMap.PollenShooter.getVelocity();
+    public double curVelocityPollenShooter = hwMap.PollenShooterLeft.getVelocity();
 
     public double PollenShooterTargetVelocity = 1700;
 
@@ -31,7 +30,7 @@ public class ShootingRoutineLogic {
 
         robotStates = RobotStates.IDLE;
           hwMap.gatePollen.setPosition(hwMap.gatePollenClosePos);
-          hwMap.gateNectar.setPosition(hwMap.gateNectarClosePos);
+      //    hwMap.gateNectar.setPosition(hwMap.gateNectarClosePos);
 
     }
 
@@ -43,15 +42,15 @@ public class ShootingRoutineLogic {
                 if(placeholder == 0){
 
                     hwMap.gatePollen.setPosition(hwMap.gatePollenOpenPos);
-                    hwMap.gateNectar.setPosition(hwMap.gateNectarOpenPos);
-                    hwMap.PollenShooter.setVelocity(hwMap.PollenShooterTargetVelocity);
+                 //   hwMap.gateNectar.setPosition(hwMap.gateNectarOpenPos);
+                    hwMap.PollenShooterLeft.setVelocity(hwMap.PollenShooterTargetVelocity);
                     robotStates = RobotStates.PollenTurretShooterActive;
                     PollenShooterTimer.reset();
 
                 }
                 break;
             case PollenTurretShooterActive:
-                hwMap.PollenShooter.setVelocity(hwMap.PollenShooterTargetVelocity);
+                hwMap.PollenShooterLeft.setVelocity(hwMap.PollenShooterTargetVelocity);
                 if(curVelocityPollenShooter<hwMap.PollenShooterTargetVelocity || PollenShooterTimer.milliseconds()>500){
 
 

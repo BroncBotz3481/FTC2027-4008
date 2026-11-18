@@ -19,7 +19,7 @@ public class AutoCommands {
     private ElapsedTime IntakingPhaseTimer = new ElapsedTime();
 
 
-    public double curPollenShooterVelocity =hwMap.PollenShooter.getVelocity();
+    public double curPollenShooterVelocity =hwMap.PollenShooterLeft.getVelocity();
 
     // Constructor to receive your hardware map and follower instance
     public AutoCommands(HwMap hwMap, Follower follower) {
@@ -34,15 +34,15 @@ public class AutoCommands {
                     hwMap.gatePollen.setPosition(hwMap.gatePollenOpenPos);
                 })
                 .setExecute(() -> {
-                    hwMap.PollenShooter.setVelocity(hwMap.PollenShooterTargetVelocity);
+                    hwMap.PollenShooterLeft.setVelocity(hwMap.PollenShooterTargetVelocity);
                     hwMap.intakeMain1.setPower(hwMap.intakePower);
                     hwMap.intakeMain2.setPower(hwMap.intakePower);
                 })
                 .setDone(() -> shooterTimer.milliseconds() >= 5000)
                 .setEnd(endCondition -> {
-                    hwMap.PollenShooter.setVelocity(0);
+                    hwMap.PollenShooterLeft.setVelocity(0);
                 })
-                .requiring(hwMap.PollenShooter,
+                .requiring(hwMap.PollenShooterLeft,
                         hwMap.intakeMain1,
                         hwMap.intakeMain2,
                         hwMap.gatePollen);
@@ -73,7 +73,7 @@ public class AutoCommands {
                 .setStart(() -> {
                     IntakingPhaseTimer.reset();
                     hwMap.gatePollen.setPosition(hwMap.gatePollenClosePos);
-                    hwMap.gateNectar.setPosition(hwMap.gateNectarClosePos);
+                   // hwMap.gateNectar.setPosition(hwMap.gateNectarClosePos);
                 })
                 .setExecute(() -> {
                     hwMap.intakeMain1.setPower(hwMap.intakePower);
@@ -99,15 +99,15 @@ public class AutoCommands {
     Command IntakeMain1Spit = instant(()-> hwMap.intakeMain1.setPower(hwMap.intakeSpitPower));
     Command IntakeMain2Spit= instant(()-> hwMap.intakeMain2.setPower(hwMap.intakeSpitPower));
 
-    Command ShooterPollenRun =  instant(()-> hwMap.PollenShooter.setVelocity(hwMap.PollenShooterTargetVelocity));
-    Command ShooterNectarRun =  instant(()-> hwMap.NectarShooter.setVelocity(hwMap.NectarShooterTargetVelocity));
+    Command ShooterPollenRun =  instant(()-> hwMap.PollenShooterLeft.setVelocity(hwMap.PollenShooterTargetVelocity));
+   // Command ShooterNectarRun =  instant(()-> hwMap.NectarShooter.setVelocity(hwMap.NectarShooterTargetVelocity));
 
     //gate-may run in parallel or separately idk yet
     Command PollenGateOpen =  instant(()-> hwMap.gatePollen.setPosition(hwMap.gatePollenOpenPos));
-    Command NectarGateOpen =  instant(()-> hwMap.gateNectar.setPosition(hwMap.gateNectarOpenPos));
+   // Command NectarGateOpen =  instant(()-> hwMap.gateNectar.setPosition(hwMap.gateNectarOpenPos));
 
     Command PollenGateClose =  instant(()-> hwMap.gatePollen.setPosition(hwMap.gatePollenClosePos));
-    Command NectarGateClose =  instant(()-> hwMap.gateNectar.setPosition(hwMap.gateNectarClosePos));
+  //  Command NectarGateClose =  instant(()-> hwMap.gateNectar.setPosition(hwMap.gateNectarClosePos));
 
 
     //Turret Stuff need to change for sure later
@@ -122,7 +122,7 @@ public class AutoCommands {
     Command Chill = waitMs(500);
 
 
-    Command WaitForMiAmor = waitUntil(()-> hwMap.PollenShooter.getVelocity() > 1400);
+    Command WaitForMiAmor = waitUntil(()-> hwMap.PollenShooterLeft.getVelocity() > 1400);
 
 
 //    public Command DeBounceTest_wPedro() {

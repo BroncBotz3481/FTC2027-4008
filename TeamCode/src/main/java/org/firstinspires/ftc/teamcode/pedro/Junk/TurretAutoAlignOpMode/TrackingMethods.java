@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.pedro.Junk.TurretAutoAlignOpMode;
 
 import com.pedropathing.follower.Follower;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -11,6 +12,7 @@ import com.pedropathing.api.PoseFactory;
 import com.pedropathing.math.Pose;
 
 @TeleOp(name = "TurretAiming")
+@Disabled
 
 public class TrackingMethods extends OpMode {
     private Follower follower;

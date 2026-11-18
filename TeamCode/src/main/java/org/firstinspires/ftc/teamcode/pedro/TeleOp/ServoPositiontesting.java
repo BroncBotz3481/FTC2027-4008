@@ -29,6 +29,7 @@
 
 package org.firstinspires.ftc.teamcode.pedro.TeleOp;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -60,7 +61,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Remove or comment out the @Disabled line to add this OpMode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Anish's Bum", group="Linear OpMode")
+@TeleOp(name="ServoPostest", group="Linear OpMode")
+
 
 public class ServoPositiontesting extends OpMode {
 
@@ -79,35 +81,176 @@ public class ServoPositiontesting extends OpMode {
 
         hwMap.Map(hardwareMap);
 
-        if(gamepad1.a) {
-            hwMap.flowerIntake.setPosition(0);
+//        if(gamepad1.a) {
+//            hwMap.flowerIntake.setPosition(0.65);
+//        }
+//        if(gamepad1.b){
+//            hwMap.gatePollen.setPosition(0.15);
+//
+//        }
+//        if(gamepad1.x){
+//            hwMap.gatePollen.setPosition(0);
+//        }
+
+        if (gamepad1.a){
+            hwMap.gatePollen.setPosition(0.1);
         }
         if(gamepad1.b){
-            hwMap.gatePollen.setPosition(0);
-
+            hwMap.gatePollen.setPosition(0.3);
         }
-        if (gamepad1.x){
+
+//        if (gamepad1.a){
+//            hwMap.turretservo1.setPosition(0);
+//            hwMap.turretservo2.setPosition(0);
+//        }
+//        if(gamepad1.b){
+//            hwMap.turretservo1.setPosition(0.07);
+//            hwMap.turretservo2.setPosition(0.07);
+//        }
+//        if(gamepad1.x){
+//            hwMap.turretservo1.setPosition(0.08);
+//            hwMap.turretservo2.setPosition(0.08);
+//        }
+//        if(gamepad1.y){
+//            hwMap.turretservo1.setPosition(0.09);
+//            hwMap.turretservo2.setPosition(0.09);
+//
+//
+//        }
+//        if(gamepad1.dpad_right){
+//            hwMap.turretservo1.setPosition(0.1);
+//            hwMap.turretservo2.setPosition(0.1);
+//
+//        }
+//        if(gamepad1.dpad_up){
+//            hwMap.turretservo1.setPosition(0.11);
+//            hwMap.turretservo2.setPosition(0.11);
+//        }
+//        if(gamepad1.dpad_left){
+//            hwMap.turretservo1.setPosition(0.12);
+//            hwMap.turretservo2.setPosition(0.12);
+//        }
+//
+//        if(gamepad1.dpad_down){
+//            hwMap.turretservo1.setPosition(0.13);
+//            hwMap.turretservo2.setPosition(0.13);
+//        }
+//
+//
+//        if (gamepad2.a){
+//            hwMap.turretservo1.setPosition(0);
+//            hwMap.turretservo2.setPosition(0);
+//        }
+//        if(gamepad2.b){
+//            hwMap.turretservo1.setPosition(0.143);
+//            hwMap.turretservo2.setPosition(0.143);
+//        }
+//        if(gamepad2.x){
+//            hwMap.turretservo1.setPosition(0.15);
+//            hwMap.turretservo2.setPosition(0.15);
+//        }
+//        if(gamepad2.y){
+//            hwMap.turretservo1.setPosition(0.16);
+//            hwMap.turretservo2.setPosition(0.16);
+//
+//
+//        }
+//        if(gamepad2.dpad_right){
+//            hwMap.turretservo1.setPosition(0.04);
+//            hwMap.turretservo2.setPosition(0.04);
+//
+//        }
+//        if(gamepad2.dpad_left){
+//            hwMap.turretservo1.setPosition(0.05);
+//            hwMap.turretservo2.setPosition(0.05);
+//        }
+//        if(gamepad2.dpad_left){
+//            hwMap.turretservo1.setPosition(0.06);
+//            hwMap.turretservo2.setPosition(0.06);
+//        }
+
+
+
+
+        if(gamepad2.dpad_up){
             hwMap.gateNectar.setPosition(0);
         }
-
-        if(gamepad1.dpad_up){
-            hwMap.HoodPollen.setPosition(0);
+        if(gamepad2.dpad_down){
+            hwMap.gateNectar.setPosition(0.01);
+        }
+        if(gamepad2.dpad_left){
+            hwMap.gateNectar.setPosition(0.02);
+        }
+        if(gamepad2.dpad_right){
+            hwMap.gateNectar.setPosition(0.03);
         }
 
-        if(gamepad1.dpad_down){
-            hwMap.HoodNectar.setPosition(0);
-        }
+//        if(gamepad1.a){
+//            hwMap.flowerIntake.setPosition(0);
+//        }
+//        if(gamepad1.b){
+//            hwMap.flowerIntake.setPosition(0.1);
+//        }
+//        if(gamepad1.x){
+//            hwMap.flowerIntake.setPosition(0.20);
+//        }
+//        if(gamepad1.y){
+//            hwMap.flowerIntake.setPosition(0.30);
+//        }
+//        if(gamepad1.dpad_right){
+//            hwMap.flowerIntake.setPosition(0.55);
+//        }
+//        if(gamepad1.dpad_left){
+//            hwMap.flowerIntake.setPosition(0.61);
+//        }
 
-        if(gamepad1.dpad_left){
-            hwMap.turretservo1.setPosition(0);
-        }
 
-        if(gamepad1.dpad_right){
-            hwMap.turretservo2.setPosition(0);
-        }
+
+
+
+
+//        if(gamepad1.dpad_up){
+//            //.67 is the default pose
+//            hwMap.HoodPollen.setPosition(0.67);
+//        }
+
+//        if(gamepad1.dpad_down){
+//            hwMap.HoodNectar.setPosition(0.4);
+//
+//        }
+//        if(gamepad1.dpad_right){
+//            hwMap.HoodNectar.setPosition(0.7);
+//        }
+//        if(gamepad1.dpad_left){
+//            //0.5 is thecorrect
+//            hwMap.HoodNectar.setPosition(0.5);
+//        }
+//        if(gamepad1.dpad_right){
+//            hwMap.turretservo1.setPosition(0.218);
+//            hwMap.turretservo2.setPosition(0.218);
+//        }
+//
+//        if(gamepad1.dpad_left){
+//            hwMap.turretservo1.setPosition(0.108);
+//            hwMap.turretservo2.setPosition(0.108);
+//        }
+//
+//        if(gamepad1.dpad_down){
+//            hwMap.turretservo1.setPosition(0.163);
+//            hwMap.turretservo2.setPosition(0.163);
+//        }
+
+//        if(gamepad1.dpad_right){
+//            hwMap.turretservo1.setPosition(-0.05);
+//            hwMap.turretservo2.setPosition(-0.05);
+//        }
+
 
 
 
     }
+
+
 }
+
 
